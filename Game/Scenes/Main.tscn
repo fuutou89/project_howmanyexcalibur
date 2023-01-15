@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tileset Grass.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=4]
+[ext_resource path="res://RES_SOUND/Music.mp3" type="AudioStream" id=5]
 
 [sub_resource type="TileSet" id=2]
 0/name = "Tileset Grass.png 0"
@@ -120,15 +121,20 @@ curve = SubResource( 1 )
 position = Vector2( -64, -1.01666 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( -616, 624 )
 
 [node name="AttachmentRoot" type="Node" parent="."]
 
 [node name="MobTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="PlayerStart" type="Node2D" parent="."]
-position = Vector2( 456, 311 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="get_killed" from="Player" to="." method="_on_Player_get_killed"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

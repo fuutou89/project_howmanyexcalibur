@@ -1,0 +1,7 @@
+﻿time_range_min,time_range_max,enemy_group_id,weight
+0,30,1,100
+30,60,1,40
+30,60,2,60
+60,90,2,80
+60,90,3,20
+90,120,4,100

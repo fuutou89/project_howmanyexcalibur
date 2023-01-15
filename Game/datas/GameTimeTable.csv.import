@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.godot-csv-importer"
+type="Resource"
+path="res://.import/GameTimeTable.csv-c0295784251eb296d557d8fb04e62079.res"
+
+[deps]
+
+source_file="res://datas/GameTimeTable.csv"
+dest_files=[ "res://.import/GameTimeTable.csv-c0295784251eb296d557d8fb04e62079.res" ]
+
+[params]
+
+delimiter=0
+headers=true
+detect_numbers=true
+force_float=true

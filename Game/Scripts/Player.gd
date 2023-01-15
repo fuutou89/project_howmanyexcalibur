@@ -6,6 +6,11 @@ export var speed = 400 # How fast the player will move (pixels/sec).
 export var max_hit_point = 100
 var hit_point = max_hit_point
 
+
+onready var animationplayer = $AnimationPlayer
+onready var sprite = $Sprite
+
+
 #var screen_size # Size of the game window.
 func _ready():
 	#screen_size = get_viewport_rect().size
@@ -31,6 +36,15 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+		
+	if velocity != Vector2.ZERO:#移动动画播放
+		 animationplayer.play("RUN",-1, 1, false)
+		
+	if velocity.x < 0:#左右翻转
+		sprite.flip_h = true
+	elif velocity.x > 0:
+		sprite.flip_h = false
+		
 
 	position += velocity * delta
 	#position.x = clamp(position.x, 0, screen_size.x)

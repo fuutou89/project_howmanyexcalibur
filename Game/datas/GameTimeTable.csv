@@ -1,0 +1,5 @@
+﻿time_range_min,time_range_max,enemy_spawn_interval
+0,180,1
+180,360,2
+360,540,3
+540,600,4

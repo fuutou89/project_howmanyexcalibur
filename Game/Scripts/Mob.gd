@@ -8,6 +8,7 @@ var pickup_id = 0
 var bGotPlayer = false
 
 export(PackedScene) var pickup_scene
+onready var hit_sound = preload("res://Scenes/Audio_HIT.tscn")
 
 func _ready():
 	add_to_group("enemy")
@@ -29,6 +30,9 @@ func InitEnemy(enemyConfig):
 	pickup_id = enemyConfig.pickup_id
 
 func TakeDamage(damage):
+	var audio_hit = hit_sound.instance()
+	get_tree().get_root().add_child(audio_hit)
+	audio_hit.position = position
 	health_point -= damage
 	if health_point <= 0:
 		remove_from_group("enemy")
