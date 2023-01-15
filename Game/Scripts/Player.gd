@@ -6,10 +6,6 @@ export var speed = 400 # How fast the player will move (pixels/sec).
 onready var animationplayer = $AnimationPlayer
 onready var sprite = $Sprite
 
-enum {
-	IDLE,
-	RUN
-}
 
 #var screen_size # Size of the game window.
 func _ready():
