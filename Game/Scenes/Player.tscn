@@ -27,4 +27,8 @@ disabled = true
 [node name="Excalibur" parent="Hand" instance=ExtResource( 2 )]
 position = Vector2( 0, -100 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+
 [connection signal="area_entered" from="Hand/Excalibur" to="." method="_on_Excalibur_area_entered"]
