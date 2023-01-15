@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://RES/apple.png" type="Texture" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/AttachPickup.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Attachment.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 11.0454
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
 
 [node name="AttachPickup" type="Area2D"]
 monitoring = false
@@ -13,17 +13,12 @@ script = ExtResource( 2 )
 attachment_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.3, 0.3 )
+self_modulate = Color( 0.321569, 1, 0.0117647, 1 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_editor_description_": ""
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-__meta__ = {
-"_editor_description_": ""
-}
+disabled = true
 
 [node name="ReadyTimer" type="Timer" parent="."]
 one_shot = true
