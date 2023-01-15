@@ -4,8 +4,8 @@
 [ext_resource path="res://Scripts/AttachPickup.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Attachment.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 11.0454
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
 
 [node name="AttachPickup" type="Area2D"]
 monitoring = false
