@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RES/ship_0006.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/AttachPickup.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Attachment.tscn" type="PackedScene" id=3]
+
+[node name="AttachPickup" type="Area2D"]
+monitoring = false
+script = ExtResource( 2 )
+attachment_scene = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 7, 7 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 2, -66, -22, -51, -20, -42, -52, -39, -74, -4, -65, 21, -39, 28, -25, 53, 0, 63, 26, 54, 36, 28, 63, 20, 79, -1, 54, -42, 23, -43, 25, -50 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ReadyTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ReadyTimer" to="." method="_on_ReadyTimer_timeout"]

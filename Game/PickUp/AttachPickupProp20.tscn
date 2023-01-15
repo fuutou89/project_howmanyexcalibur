@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RES/genericItem_color_009.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/AttachPickup.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Attachment.tscn" type="PackedScene" id=3]
+
+[node name="AttachPickup" type="Area2D"]
+monitoring = false
+script = ExtResource( 2 )
+attachment_scene = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -1, -50, -9, -34, 0, -16, -13, -4, -37, 36, -22, 42, -3, 22, 3, 50, 23, 52, 24, 1, 20, -2, 20, -13, 38, -21, 38, -38, 27, -46, 23, -28, 13, -24, 5, -35, 11, -50 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ReadyTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ReadyTimer" to="." method="_on_ReadyTimer_timeout"]

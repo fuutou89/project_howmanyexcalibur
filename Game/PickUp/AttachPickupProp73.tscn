@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://RES/spaceBuilding_014.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/AttachPickup.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Attachment.tscn" type="PackedScene" id=3]
+
+[node name="AttachPickup" type="Area2D"]
+monitoring = false
+script = ExtResource( 2 )
+attachment_scene = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -1, -33, -23, -25, -32, -20, -40, -29, -134, -29, -134, 30, -41, 29, -31, 20, -18, 26, 0, 31, 19, 27, 30, 20, 40, 30, 134, 29, 133, -30, 40, -30, 30, -21, 18, -25 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ReadyTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="ReadyTimer" to="." method="_on_ReadyTimer_timeout"]
