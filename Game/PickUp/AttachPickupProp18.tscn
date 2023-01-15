@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://RES/apple.png" type="Texture" id=1]
+[ext_resource path="res://RES/genericItem_color_001.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/AttachPickup.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Attachment.tscn" type="PackedScene" id=3]
 
@@ -10,14 +10,14 @@ script = ExtResource( 2 )
 attachment_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 0, -15, -20, 5, 0, 17, 33, -1, 18, -3, 14, -19 )
+polygon = PoolVector2Array( -31, -24, -40, 15, -20, 20, -20, 13, -23, 8, -21, -2, -3, -2, 0, 23, 12, 21, 10, -2, 15, -3, 20, -11, 42, -10, 40, -17, 19, -17, 15, -23 )
 __meta__ = {
 "_editor_description_": ""
 }

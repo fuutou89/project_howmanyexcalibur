@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://RES/apple.png" type="Texture" id=1]
+[ext_resource path="res://RES/shovel_diamond.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/AttachPickup.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Attachment.tscn" type="PackedScene" id=3]
 
@@ -10,14 +10,13 @@ script = ExtResource( 2 )
 attachment_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 0, -15, -20, 5, 0, 17, 33, -1, 18, -3, 14, -19 )
+polygon = PoolVector2Array( 3, -43, -16, -25, -6, -15, -11, -8, -6, -3, -51, 47, -43, 53, 3, 5, 8, 11, 16, 3, 31, 15, 44, -6, 49, -28, 42, -47, 22, -49 )
 __meta__ = {
 "_editor_description_": ""
 }

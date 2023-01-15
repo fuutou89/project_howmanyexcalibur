@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://RES/apple.png" type="Texture" id=1]
+[ext_resource path="res://RES/fishingPole.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/AttachPickup.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Attachment.tscn" type="PackedScene" id=3]
 
@@ -10,14 +10,14 @@ script = ExtResource( 2 )
 attachment_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( 0, -15, -20, 5, 0, 17, 33, -1, 18, -3, 14, -19 )
+polygon = PoolVector2Array( -26, 20, -20, 27, 7, -11, 8, -10, 14, -17, 15, -10, 10, 4, 11, 11, 15, 15, 11, 18, 9, 16, 6, 18, 10, 24, 19, 20, 21, 14, 18, 11, 18, 5, 14, 5, 18, -12, 16, -19, 15, -24, 12, -25, 8, -23, 6, -20, 2, -17, 3, -15 )
 __meta__ = {
 "_editor_description_": ""
 }
