@@ -9,6 +9,7 @@ func _ready():
 	
 
 func CreateAttachment(gpos, grot, attachParent):
+	remove_from_group("pickup")
 	yield(get_tree(), "idle_frame")
 	var attachment = attachment_scene.instance()
 	attachParent.add_child(attachment)

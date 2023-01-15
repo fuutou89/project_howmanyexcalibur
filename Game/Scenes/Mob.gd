@@ -13,6 +13,7 @@ func _process(delta):
 	move_and_slide(linearVelocity)
 
 func TakeDamage(damage):
+	remove_from_group("enemy")
 	$DyingTimer.start()
 
 

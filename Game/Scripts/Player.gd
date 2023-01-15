@@ -34,8 +34,8 @@ func _process(delta):
 
 
 func _on_Excalibur_area_entered(area):
-	#if !area.is_in_group("pickup"):
-		#return
+	if !area.is_in_group("pickup"):
+		return
 		
 	var gPos = area.global_position
 	var gRot = area.global_rotation

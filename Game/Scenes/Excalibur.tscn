@@ -8,6 +8,7 @@ extents = Vector2( 32, 32 )
 
 [node name="Excalibur" type="Area2D"]
 collision_layer = 0
+monitorable = false
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
