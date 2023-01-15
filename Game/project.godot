@@ -14,9 +14,32 @@ config/name="HowManyExcalibur"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+ConfigMgr="*res://Scripts/ConfigMgr.gd"
+
+[config_table_plugin]
+
+root_directory="res://config_table"
+config_table_template_path="templates/ConfigTable.gd.template"
+config_helper_save_path="ConfigHelper.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/csv-data-importer/plugin.cfg" )
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
+
+[importer_defaults]
+
+com.timothyqiu.godot-csv-importer={
+"delimiter": 0,
+"detect_numbers": true,
+"force_float": false,
+"headers": true
+}
 
 [input]
 

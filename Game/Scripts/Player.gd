@@ -1,6 +1,10 @@
 extends Area2D
 
+signal get_killed
+
 export var speed = 400 # How fast the player will move (pixels/sec).
+export var max_hit_point = 100
+var hit_point = max_hit_point
 
 #var screen_size # Size of the game window.
 func _ready():
@@ -41,7 +45,38 @@ func _on_Excalibur_area_entered(area):
 	var gRot = area.global_rotation
 	var attachment = area.CreateAttachment(gPos, gRot, $Hand)
 	
-func PickAttachment(acceleration, decceleration, max_speed):
-	$Hand.SetHandAcceleration($Hand.acceleration + max_speed)
-	$Hand.SetHandDecceleration($Hand.decceleration + max_speed)
-	$Hand.SetMaxSpeed($Hand.max_rotate_speed + max_speed)
+func PickAttachment(attachment_config):
+	$Hand.SetHandAcceleration($Hand.acceleration + attachment_config.acceleration)
+	$Hand.SetHandDecceleration($Hand.decceleration + attachment_config.decceleration)
+	$Hand.SetMaxSpeed($Hand.max_rotate_speed + attachment_config.max_speed)
+	speed += attachment_config.player_speed
+	max_hit_point += attachment_config.player_hp
+	hit_point += attachment_config.player_hp
+
+
+func _on_Player_body_entered(body):
+	if !body.is_in_group("enemy"):
+		return
+	
+	body.ContactPlayer(true)
+
+func _on_Player_body_exited(body):
+	if !body.is_in_group("enemy"):
+		return
+	
+	body.ContactPlayer(false)
+	
+func TakeDamage(damage):
+	hit_point -= damage
+	
+	if hit_point <= 0:
+		emit_signal("get_killed")
+		
+func RespawnPlayer(pos):
+	position = pos
+	speed = 400
+	max_hit_point = 100
+	hit_point = max_hit_point
+	$Hand.ResetHand()
+
+

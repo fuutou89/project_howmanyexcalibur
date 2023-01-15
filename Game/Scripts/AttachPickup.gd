@@ -1,21 +1,28 @@
 extends Area2D
 
-export(PackedScene) var attachment_scene
+var attachment_id = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("pickup")
-	pass # Replace with function body.
 	
-
+func InitPickup(pickup_config):
+	attachment_id = pickup_config.attachment_id
+	pass
+	
 func CreateAttachment(gpos, grot, attachParent):
 	remove_from_group("pickup")
 	yield(get_tree(), "idle_frame")
-	var attachment = attachment_scene.instance()
+	var attachment_config = ConfigMgr.GetAttachmentConfig(attachment_id)
+	var attachment = load("res://" + attachment_config.res_path).instance()
 	attachParent.add_child(attachment)
 	attachment.set_global_position(gpos)
 	attachment.set_global_rotation(grot)
+	attachment.InitAttachmentConfig(attachment_config)	
 	queue_free()
 
 func _on_ReadyTimer_timeout():
 	$CollisionShape2D.disabled = false
+	
+func ReleasePickup():
+	queue_free()

@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.godot-csv-importer"
+type="Resource"
+path="res://.import/Pickup.csv-8aa2a31119364ba5785247f81bf877a5.res"
+
+[deps]
+
+source_file="res://datas/Pickup.csv"
+dest_files=[ "res://.import/Pickup.csv-8aa2a31119364ba5785247f81bf877a5.res" ]
+
+[params]
+
+delimiter=0
+headers=true
+detect_numbers=true
+force_float=false

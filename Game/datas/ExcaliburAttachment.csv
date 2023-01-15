@@ -1,0 +1,2 @@
+﻿id,name,acceleration,decceleration,max_speed,attack_point,player_hp,player_speed,res_path
+1001,default,0.01,0.01,0.01,10,10,1,Scenes/Attachment.tscn

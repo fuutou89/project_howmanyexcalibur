@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.godot-csv-importer"
+type="Resource"
+path="res://.import/ExcaliburAttachment.csv-3801e16a77a26e8a073bbc46726bb36f.res"
+
+[deps]
+
+source_file="res://datas/ExcaliburAttachment.csv"
+dest_files=[ "res://.import/ExcaliburAttachment.csv-3801e16a77a26e8a073bbc46726bb36f.res" ]
+
+[params]
+
+delimiter=0
+headers=true
+detect_numbers=true
+force_float=false

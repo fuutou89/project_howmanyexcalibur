@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tileset Grass.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Mob.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=4]
 
 [sub_resource type="TileSet" id=2]
@@ -106,7 +105,6 @@ _data = {
 
 [node name="Main" type="Node"]
 script = ExtResource( 4 )
-mob_scene = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -129,4 +127,8 @@ position = Vector2( -616, 624 )
 [node name="MobTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="PlayerStart" type="Node2D" parent="."]
+position = Vector2( 456, 311 )
+
+[connection signal="get_killed" from="Player" to="." method="_on_Player_get_killed"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.godot-csv-importer"
+type="Resource"
+path="res://.import/Enemy.csv-9dc9115132536b62c6486530ddf84f95.res"
+
+[deps]
+
+source_file="res://datas/Enemy.csv"
+dest_files=[ "res://.import/Enemy.csv-9dc9115132536b62c6486530ddf84f95.res" ]
+
+[params]
+
+delimiter=0
+headers=true
+detect_numbers=true
+force_float=false

@@ -47,3 +47,10 @@ func SetHandAcceleration(new_acceleration):
 func SetHandDecceleration(new_decceleration):
 	decceleration = new_decceleration
 	set_physics_process(true)
+	
+func ResetHand():
+	acceleration = 0.5
+	decceleration = 1
+	rotate_dir = 1
+	max_rotate_speed = 0.1
+	rotate_speed = 0

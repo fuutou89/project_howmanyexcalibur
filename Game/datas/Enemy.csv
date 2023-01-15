@@ -1,0 +1,2 @@
+﻿id,name,speed,health_point,attack_point,pickup_id,res_path
+1,default,100,200,10,101,Scenes/Mob.tscn
