@@ -7,6 +7,8 @@ export(PackedScene) var mob_scene
 func _ready():
 	pass # Replace with function body.
 
+var mobCount = 0
+
 func _on_MobTimer_timeout():
 	# Create a new instance of the Mob scene.
 	var mob = mob_scene.instance()
@@ -23,3 +25,7 @@ func _on_MobTimer_timeout():
 
 	# Spawn the mob by adding it to the Main scene.
 	add_child(mob)
+	
+	mobCount += 1
+	if mobCount >= 9999:
+		$MobTimer.stop()

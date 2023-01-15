@@ -34,16 +34,9 @@ func _process(delta):
 
 
 func _on_Excalibur_area_entered(area):
-	if !area.is_in_group("attachments"):
-		return
+	#if !area.is_in_group("pickup"):
+		#return
 		
-	if area.bAttached:
-		return
-	
-	var attchement_gpos = area.global_position
-	
-	area.bAttached = true
-	area.get_parent().remove_child(area)
-	$Hand.add_child(area)
-	
-	area.set_global_position(attchement_gpos)
+	var gPos = area.global_position
+	var gRot = area.global_rotation
+	var attachment = area.CreateAttachment(gPos, gRot, $Hand)
