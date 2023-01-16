@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Mob.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/AttachPickup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://RES_ENEMY/mouth_closed_fangs.png" type="Texture" id=3]
+[ext_resource path="res://RES_ENEMY/body_darkC.png" type="Texture" id=4]
+[ext_resource path="res://RES_ENEMY/eye_blue.png" type="Texture" id=5]
+[ext_resource path="res://RES_ENEMY/detail_dark_horn_large.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 22.0
+radius = 25.6
+height = 26.4
 
 [node name="Mob" type="KinematicBody2D"]
 scale = Vector2( 1.25, 1.25 )
@@ -15,9 +19,43 @@ pickup_scene = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 1.2, 1.2 )
+
+[node name="body" type="Sprite" parent="Sprite"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
+
+[node name="hand1" type="Sprite" parent="Sprite"]
+position = Vector2( 17.6, -27.2 )
+rotation = 0.000594884
+scale = Vector2( 0.402871, 0.402871 )
+texture = ExtResource( 6 )
+
+[node name="hand2" type="Sprite" parent="Sprite"]
+position = Vector2( -22.4, 14.4 )
+rotation = 3.24645
+scale = Vector2( 0.230141, 0.230141 )
+texture = ExtResource( 6 )
+
+[node name="eye1" type="Sprite" parent="Sprite"]
+position = Vector2( 12.8, -4 )
+rotation = 0.750296
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="eye2" type="Sprite" parent="Sprite"]
+position = Vector2( -11.2, -3.2 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 5 )
+
+[node name="mouth" type="Sprite" parent="Sprite"]
+position = Vector2( -1.19209e-07, 22.4 )
+rotation = -0.0525642
+scale = Vector2( 0.212963, 0.3125 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1.2, 1.2 )
 shape = SubResource( 1 )
 
 [node name="DyingTimer" type="Timer" parent="."]

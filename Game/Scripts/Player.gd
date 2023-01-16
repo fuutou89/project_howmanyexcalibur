@@ -18,7 +18,9 @@ func _ready():
 
 func _process(delta):	
 	var childCount = $Hand.get_child_count()
-	var new_zoom = clamp(childCount / 10.0, 1, 3)
+	var new_zoom = clamp(childCount / 20, 1, 3)
+	print(childCount)
+	print("HP:", hit_point)
 	$Camera2D.ZoomCam(new_zoom)
 	
 	if Input.is_action_just_released("switch_hand"):

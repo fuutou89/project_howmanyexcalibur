@@ -121,6 +121,8 @@ curve = SubResource( 1 )
 position = Vector2( -64, -1.01666 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+speed = 100
+max_hit_point = 200
 
 [node name="AttachmentRoot" type="Node" parent="."]
 
@@ -138,3 +140,5 @@ one_shot = true
 [connection signal="get_killed" from="Player" to="." method="_on_Player_get_killed"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+
+[editable path="Player"]

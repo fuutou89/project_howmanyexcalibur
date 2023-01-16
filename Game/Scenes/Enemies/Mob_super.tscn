@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Mob.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/AttachPickup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://RES_ENEMY/eye_angry_green.png" type="Texture" id=3]
+[ext_resource path="res://RES_ENEMY/arm_blueB.png" type="Texture" id=4]
+[ext_resource path="res://RES_ENEMY/eye_angry_red.png" type="Texture" id=5]
+[ext_resource path="res://RES_ENEMY/body_whiteD.png" type="Texture" id=6]
+[ext_resource path="res://RES_ENEMY/detail_blue_horn_large.png" type="Texture" id=7]
+[ext_resource path="res://RES_ENEMY/mouthH.png" type="Texture" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 22.0
+radius = 57.5
 
 [node name="Mob" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
@@ -15,7 +20,52 @@ pickup_scene = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 1.8, 1.8 )
+
+[node name="body" type="Sprite" parent="Sprite"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 6 )
+
+[node name="hand1" type="Sprite" parent="Sprite"]
+position = Vector2( 13.8889, -30 )
+rotation = -0.382028
+scale = Vector2( 0.282174, 0.282174 )
+texture = ExtResource( 7 )
+
+[node name="hand2" type="Sprite" parent="Sprite"]
+position = Vector2( -21.1111, -24.4444 )
+rotation = 4.42008
+scale = Vector2( 0.230141, 0.230141 )
+texture = ExtResource( 7 )
+
+[node name="hand3" type="Sprite" parent="Sprite"]
+position = Vector2( -49.4445, -20.5556 )
+rotation = -3.54116
+scale = Vector2( 0.230141, 0.230141 )
+texture = ExtResource( 4 )
+
+[node name="hand4" type="Sprite" parent="Sprite"]
+position = Vector2( 52.5, 20.5556 )
+rotation = -0.489389
+scale = Vector2( 0.230141, 0.230141 )
+texture = ExtResource( 4 )
+
+[node name="eye1" type="Sprite" parent="Sprite"]
+position = Vector2( 16.1866, -3.97172 )
+rotation = 0.750296
+scale = Vector2( 0.141608, 0.141608 )
+texture = ExtResource( 5 )
+
+[node name="eye2" type="Sprite" parent="Sprite"]
+position = Vector2( -17.7778, -4.72222 )
+scale = Vector2( 0.166481, 0.144646 )
 texture = ExtResource( 3 )
+
+[node name="mouth" type="Sprite" parent="Sprite"]
+position = Vector2( -1.19209e-07, 22.4 )
+rotation = -0.0525642
+scale = Vector2( 0.212963, 0.3125 )
+texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

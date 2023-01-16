@@ -1,7 +1,7 @@
 extends Node
 
 var time_since_game_start = 0
-var total_game_time = 119
+var total_game_time = 600
 var b_game_start = false
 
 # Called when the node enters the scene tree for the first time.

@@ -1,9 +1,9 @@
 extends Node2D
 
-var acceleration = 0.5
-var decceleration = 1
+var acceleration = 0.1
+var decceleration = 0.5
 var rotate_dir = 1
-var max_rotate_speed = 0.1
+var max_rotate_speed = 0.05
 var rotate_speed = 0
 
 func _ready():
@@ -37,7 +37,10 @@ func SwitchHand():
 	set_physics_process(true)
 	
 func SetMaxSpeed(new_max_speed):
-	max_rotate_speed = new_max_speed
+	if new_max_speed < 0.05:
+		max_rotate_speed = 0.05
+	if new_max_speed >= 0.05:
+		max_rotate_speed = new_max_speed
 	set_physics_process(true)	
 
 func SetHandAcceleration(new_acceleration):

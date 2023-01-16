@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Mob.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/AttachPickup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://RES_ENEMY/eye_angry_red.png" type="Texture" id=3]
+[ext_resource path="res://RES_ENEMY/mouthJ.png" type="Texture" id=4]
+[ext_resource path="res://RES_ENEMY/body_redF.png" type="Texture" id=5]
+[ext_resource path="res://RES_ENEMY/arm_redE.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 22.0
+radius = 27.3333
+height = 40.0
 
 [node name="Mob" type="KinematicBody2D"]
 scale = Vector2( 1.5, 1.5 )
@@ -15,9 +19,43 @@ pickup_scene = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 self_modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="body" type="Sprite" parent="Sprite"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 5 )
+
+[node name="hand1" type="Sprite" parent="Sprite"]
+position = Vector2( 39.3333, 8 )
+rotation = -0.707889
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 6 )
+
+[node name="hand2" type="Sprite" parent="Sprite"]
+position = Vector2( -42.6667, 0 )
+rotation = 1.74942
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 6 )
+
+[node name="eye1" type="Sprite" parent="Sprite"]
+position = Vector2( 12.6667, -15.3333 )
+rotation = 0.750296
+scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 3 )
 
+[node name="eye2" type="Sprite" parent="Sprite"]
+position = Vector2( -14, -18.6667 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 3 )
+
+[node name="mouth" type="Sprite" parent="Sprite"]
+position = Vector2( 1.33333, 20.6667 )
+rotation = -0.0525642
+scale = Vector2( 0.212963, 0.3125 )
+texture = ExtResource( 4 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1.5, 1.5 )
 shape = SubResource( 1 )
 
 [node name="DyingTimer" type="Timer" parent="."]
