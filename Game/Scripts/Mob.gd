@@ -6,8 +6,6 @@ var attack_point = 10
 var pickup_id = 0
 var attack_cooldown = 0.1
 
-var bGotPlayer = false
-
 export(PackedScene) var pickup_scene
 onready var hit_sound = preload("res://Scenes/Audio_HIT.tscn")
 
@@ -18,12 +16,6 @@ func _process(delta):
 	var playerPosition = get_parent().get_node("Player").position
 	var linearVelocity = (playerPosition - position).normalized() * speed
 	move_and_slide(linearVelocity)
-	
-	if bGotPlayer and $AttackTimer.is_stopped():
-		$AttackTimer.wait_time = attack_cooldown
-		$AttackTimer.start()
-	elif !bGotPlayer and !$AttackTimer.is_stopped():
-		$AttackTimer.stop()
 	
 func InitEnemy(enemyConfig):
 	speed = enemyConfig.speed
@@ -52,7 +44,13 @@ func _on_DyingTimer_timeout():
 	pass # Replace with function body.
 
 func ContactPlayer(bContact):
-	bGotPlayer = bContact
+	if bContact:
+		if $AttackTimer.is_stopped():
+			$AttackTimer.wait_time = attack_cooldown
+			$AttackTimer.start()
+	else:
+		if !$AttackTimer.is_stopped():
+			$AttackTimer.stop()	
 
 func ReleaseEnemy():
 	queue_free()
