@@ -121,4 +121,6 @@ anims/IDLE = SubResource( 2 )
 anims/RESET = SubResource( 4 )
 anims/RUN = SubResource( 3 )
 
+[connection signal="body_entered" from="." to="." method="_on_Player_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Player_body_exited"]
 [connection signal="area_entered" from="Hand/Excalibur" to="." method="_on_Excalibur_area_entered"]

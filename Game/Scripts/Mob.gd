@@ -4,6 +4,7 @@ var speed = 100
 var health_point = 100
 var attack_point = 10
 var pickup_id = 0
+var attack_cooldown = 0.1
 
 var bGotPlayer = false
 
@@ -19,6 +20,7 @@ func _process(delta):
 	move_and_slide(linearVelocity)
 	
 	if bGotPlayer and $AttackTimer.is_stopped():
+		$AttackTimer.wait_time = attack_cooldown
 		$AttackTimer.start()
 	elif !bGotPlayer and !$AttackTimer.is_stopped():
 		$AttackTimer.stop()
@@ -28,6 +30,7 @@ func InitEnemy(enemyConfig):
 	health_point = enemyConfig.health_point
 	attack_point = enemyConfig.attack_point
 	pickup_id = enemyConfig.pickup_id
+	attack_cooldown = enemyConfig.attack_cooldown
 
 func TakeDamage(damage):
 	var audio_hit = hit_sound.instance()
