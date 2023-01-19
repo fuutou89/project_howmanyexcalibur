@@ -5,7 +5,7 @@ signal get_killed
 export var speed = 400 # How fast the player will move (pixels/sec).
 export var max_hit_point = 100
 var hit_point = max_hit_point setget send_hp_value
-
+var screen_size = Vector2(4096, 2048)
 
 onready var animationplayer = $AnimationPlayer
 onready var sprite = $Sprite
@@ -14,7 +14,6 @@ onready var hp_label = $Camera2D/HUD/HP
 
 #var screen_size # Size of the game window.
 func _ready():
-	#screen_size = get_viewport_rect().size
 	add_to_group("player")
 	send_hp_value(hit_point)
 
@@ -50,8 +49,8 @@ func _process(delta):
 		
 	send_hp_value(hit_point)
 	position += velocity * delta
-	#position.x = clamp(position.x, 0, screen_size.x)
-	#position.y = clamp(position.y, 0, screen_size.y)
+	position.x = clamp(position.x, 0, screen_size.x)
+	position.y = clamp(position.y, 0, screen_size.y)
 
 
 func _on_Excalibur_area_entered(area):

@@ -38,8 +38,10 @@ text = "0 s"
 [node name="Timer" type="Timer" parent="."]
 
 [node name="HP" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+margin_left = 59.0
+margin_top = 105.0
+margin_right = 99.0
+margin_bottom = 135.0
 custom_fonts/font = SubResource( 3 )
 text = "??"
 script = ExtResource( 3 )
