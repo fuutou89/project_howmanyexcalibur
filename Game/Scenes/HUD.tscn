@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://RES_SOUND/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/HP_Label.gd" type="Script" id=3]
+[ext_resource path="res://RES_PLAYER/tile_0336.png" type="Texture" id=4]
+[ext_resource path="res://RES_PLAYER/tile_0358.png" type="Texture" id=5]
+[ext_resource path="res://RES_PLAYER/tile_0394.png" type="Texture" id=6]
+[ext_resource path="res://RES_PLAYER/tile_0393.png" type="Texture" id=7]
+[ext_resource path="res://RES_PLAYER/tile_0392.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -14,6 +19,10 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 24
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 12
 font_data = ExtResource( 2 )
 
 [node name="HUD" type="CanvasLayer"]
@@ -45,5 +54,52 @@ margin_bottom = 135.0
 custom_fonts/font = SubResource( 3 )
 text = "??"
 script = ExtResource( 3 )
+
+[node name="Tile0336" type="Sprite" parent="."]
+position = Vector2( 285, 558 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="Tile0358" type="Sprite" parent="."]
+position = Vector2( 80, 534 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="Tile0392" type="Sprite" parent="."]
+position = Vector2( 59, 560 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+
+[node name="Tile0393" type="Sprite" parent="."]
+position = Vector2( 86, 560 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+
+[node name="Tile0394" type="Sprite" parent="."]
+position = Vector2( 112, 560 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 141.0
+margin_top = 550.0
+margin_right = 221.0
+margin_bottom = 585.0
+custom_fonts/font = SubResource( 4 )
+text = "CONTROL"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 314.0
+margin_top = 550.0
+margin_right = 394.0
+margin_bottom = 585.0
+custom_fonts/font = SubResource( 4 )
+text = "SWITCH"
+__meta__ = {
+"_editor_description_": ""
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

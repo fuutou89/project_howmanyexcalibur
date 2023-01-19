@@ -68,8 +68,8 @@ func PickAttachment(attachment_config):
 	speed += attachment_config.player_speed
 	max_hit_point += attachment_config.player_hp
 	hit_point += attachment_config.player_hp
-	print(hit_point)
-	print(speed)
+	#print(hit_point)
+	#print(speed)
 
 
 func _on_Player_body_entered(body):
