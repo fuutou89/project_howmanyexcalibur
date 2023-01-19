@@ -27,7 +27,13 @@ func _on_Attachment_area_entered(area):
 	
 	var gPos = area.global_position
 	var gRot = area.global_rotation
-	var attachment = area.CreateAttachment(gPos, gRot, get_parent())
+
+	#var push_vector = Vector2.ZERO
+	#push_vector = area.global_position.direction_to(global_position)
+	#push_vector = push_vector.normalized()
+	#gPos = gPos + push_vector * 100
+		
+	var attachment = area.CreateAttachment(gPos, gRot, get_parent())	
 
 func _on_ReadyTimer_timeout():
 	$CollisionShape2D.disabled = false

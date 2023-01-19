@@ -4,23 +4,25 @@ signal get_killed
 
 export var speed = 400 # How fast the player will move (pixels/sec).
 export var max_hit_point = 100
-var hit_point = max_hit_point
+var hit_point = max_hit_point setget send_hp_value
 
 
 onready var animationplayer = $AnimationPlayer
 onready var sprite = $Sprite
+onready var hp_label = $Camera2D/HUD/HP
 
 
 #var screen_size # Size of the game window.
 func _ready():
 	#screen_size = get_viewport_rect().size
-	add_to_group("player")	
+	add_to_group("player")
+	send_hp_value(hit_point)
 
 func _process(delta):	
 	var childCount = $Hand.get_child_count()
 	var new_zoom = clamp(childCount / 20, 1, 2)
-	print(childCount)
-	print("HP:", hit_point)
+	#print(childCount)
+	#print("HP:", hit_point)
 	$Camera2D.ZoomCam(new_zoom)
 	
 	if Input.is_action_just_released("switch_hand"):
@@ -34,8 +36,7 @@ func _process(delta):
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-
+		velocity.y -= 1 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		
@@ -47,7 +48,7 @@ func _process(delta):
 	elif velocity.x > 0:
 		sprite.flip_h = false
 		
-
+	send_hp_value(hit_point)
 	position += velocity * delta
 	#position.x = clamp(position.x, 0, screen_size.x)
 	#position.y = clamp(position.y, 0, screen_size.y)
@@ -68,6 +69,8 @@ func PickAttachment(attachment_config):
 	speed += attachment_config.player_speed
 	max_hit_point += attachment_config.player_hp
 	hit_point += attachment_config.player_hp
+	print(hit_point)
+	print(speed)
 
 
 func _on_Player_body_entered(body):
@@ -84,7 +87,7 @@ func _on_Player_body_exited(body):
 	
 func TakeDamage(damage):
 	hit_point -= damage
-	
+	send_hp_value(hit_point)
 	if hit_point <= 0:
 		emit_signal("get_killed")
 		
@@ -94,5 +97,8 @@ func RespawnPlayer(pos):
 	max_hit_point = 100
 	hit_point = max_hit_point
 	$Hand.ResetHand()
+
+func send_hp_value(hit_point):
+	hp_label.hit_point_changed(hit_point)
 
 

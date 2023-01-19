@@ -5,6 +5,9 @@ var attachment_id = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("pickup")
+	$CollisionShape2D.disabled = true
+	$ReadyTimer.start()
+	
 	
 func InitPickup(pickup_config):
 	attachment_id = pickup_config.attachment_id
@@ -23,6 +26,7 @@ func CreateAttachment(gpos, grot, attachParent):
 
 func _on_ReadyTimer_timeout():
 	$CollisionShape2D.disabled = false
+	pass
 	
 func ReleasePickup():
 	queue_free()

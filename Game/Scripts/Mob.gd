@@ -4,10 +4,11 @@ var speed = 100
 var health_point = 100
 var attack_point = 10
 var pickup_id = 0
-var attack_cooldown = 0.1
+var attack_cooldown = 1
 
 export(PackedScene) var pickup_scene
 onready var hit_sound = preload("res://Scenes/Audio_HIT.tscn")
+onready var hit_effect = preload("res://Scenes/HitEffect.tscn")
 
 func _ready():
 	add_to_group("enemy")
@@ -28,6 +29,9 @@ func TakeDamage(damage):
 	var audio_hit = hit_sound.instance()
 	get_tree().get_root().add_child(audio_hit)
 	audio_hit.position = position
+	var effect_hit = hit_effect.instance()
+	get_tree().get_root().add_child(effect_hit)
+	effect_hit.position = position
 	health_point -= damage
 	if health_point <= 0:
 		remove_from_group("enemy")

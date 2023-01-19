@@ -35,6 +35,7 @@ func _on_Player_get_killed():
 	get_tree().call_group("attachments", "Detach")
 	get_tree().call_group("enemy", "ReleaseEnemy")
 	get_tree().call_group("pickup", "ReleasePickup")
+	get_tree().reload_current_scene()
 	$StartTimer.start()
 
 func _on_StartTimer_timeout():
